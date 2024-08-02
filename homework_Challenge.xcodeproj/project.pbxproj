@@ -15,6 +15,10 @@
 		E5D301DF2C5CCCED004276E8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E5D301DE2C5CCCED004276E8 /* RxSwift */; };
 		E5D301E22C5CCDDD004276E8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D301E12C5CCDDD004276E8 /* NetworkManager.swift */; };
 		E5D301E72C5CCF2A004276E8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D301E62C5CCF2A004276E8 /* MainView.swift */; };
+		E5D301E92C5CE543004276E8 /* PokemonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D301E82C5CE543004276E8 /* PokemonList.swift */; };
+		E5D301ED2C5CF0E7004276E8 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D301EC2C5CF0E7004276E8 /* MainViewModel.swift */; };
+		E5D301EF2C5CF3D6004276E8 /* PokemonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D301EE2C5CF3D6004276E8 /* PokemonDetail.swift */; };
+		E5D301F12C5D50CF004276E8 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D301F02C5D50CF004276E8 /* ListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		E5D301A72C5B7803004276E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5D301E12C5CCDDD004276E8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E5D301E62C5CCF2A004276E8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		E5D301E82C5CE543004276E8 /* PokemonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonList.swift; sourceTree = "<group>"; };
+		E5D301EC2C5CF0E7004276E8 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		E5D301EE2C5CF3D6004276E8 /* PokemonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetail.swift; sourceTree = "<group>"; };
+		E5D301F02C5D50CF004276E8 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,8 @@
 		E5D301E32C5CCDFD004276E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E5D301E82C5CE543004276E8 /* PokemonList.swift */,
+				E5D301EE2C5CF3D6004276E8 /* PokemonDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -98,8 +108,7 @@
 		E5D301E42C5CCE1A004276E8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E5D3019D2C5B7800004276E8 /* MainViewController.swift */,
-				E5D301E62C5CCF2A004276E8 /* MainView.swift */,
+				E5D301EC2C5CF0E7004276E8 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -107,6 +116,9 @@
 		E5D301E52C5CCE1C004276E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E5D301E62C5CCF2A004276E8 /* MainView.swift */,
+				E5D3019D2C5B7800004276E8 /* MainViewController.swift */,
+				E5D301F02C5D50CF004276E8 /* ListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,10 +201,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D301EF2C5CF3D6004276E8 /* PokemonDetail.swift in Sources */,
 				E5D301E22C5CCDDD004276E8 /* NetworkManager.swift in Sources */,
 				E5D301E72C5CCF2A004276E8 /* MainView.swift in Sources */,
 				E5D3019E2C5B7800004276E8 /* MainViewController.swift in Sources */,
 				E5D3019A2C5B7800004276E8 /* AppDelegate.swift in Sources */,
+				E5D301F12C5D50CF004276E8 /* ListCell.swift in Sources */,
+				E5D301E92C5CE543004276E8 /* PokemonList.swift in Sources */,
+				E5D301ED2C5CF0E7004276E8 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
