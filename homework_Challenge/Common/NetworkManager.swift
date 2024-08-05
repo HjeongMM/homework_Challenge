@@ -26,16 +26,22 @@ class NetworkManager {
                 if let error = error {
                     observer(.failure(error))
                 }
-                
+
                 guard let data = data, let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode) else {
                     observer(.failure(NetworkError.dataFetchFail))
                     return
+                }
+                
+                // 받은 JSON 데이터 출력 테스트
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    print("Received JSON data: \(jsonString)")
                 }
                 
                 do {
                     let decodeData = try JSONDecoder().decode(T.self, from: data)
                     observer(.success(decodeData))
                 } catch {
+                    print("Decoding error: \(error)")
                     observer(.failure(NetworkError.decodingFail))
                 }
             }.resume()
