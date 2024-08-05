@@ -22,11 +22,11 @@ class NetworkManager {
         return Single.create {observer in
             let session = URLSession(configuration: .default)
             session.dataTask(with: URLRequest(url: url)) { data, response, error in
-            
+                
                 if let error = error {
                     observer(.failure(error))
                 }
-
+                
                 guard let data = data, let response = response as? HTTPURLResponse, (200..<300).contains(response.statusCode) else {
                     observer(.failure(NetworkError.dataFetchFail))
                     return

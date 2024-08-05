@@ -12,13 +12,7 @@ class MainView: UIView {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        if let image = UIImage(named: "pokemonBall") {
-            imageView.image = image
-                    print("됨")
-                } else {
-                    print("안됨")
-                    imageView.backgroundColor = .red
-                }
+        imageView.image = UIImage(named: "pokemonBall")
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 1
         return imageView

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		E58364AA2C5FC50400A8F6A0 /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58364A92C5FC50400A8F6A0 /* MainHeaderView.swift */; };
 		E58364CF2C6092B300A8F6A0 /* UIColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58364CE2C6092B300A8F6A0 /* UIColorSet.swift */; };
+		E58364D12C6138D200A8F6A0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58364D02C6138D200A8F6A0 /* DetailViewController.swift */; };
+		E58364D32C6138E500A8F6A0 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58364D22C6138E500A8F6A0 /* DetailViewModel.swift */; };
+		E58364D52C61426D00A8F6A0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58364D42C61426D00A8F6A0 /* DetailView.swift */; };
 		E5D3019A2C5B7800004276E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D301992C5B7800004276E8 /* AppDelegate.swift */; };
 		E5D3019E2C5B7800004276E8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3019D2C5B7800004276E8 /* MainViewController.swift */; };
 		E5D301A32C5B7803004276E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D301A22C5B7803004276E8 /* Assets.xcassets */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		E58364A92C5FC50400A8F6A0 /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
 		E58364CE2C6092B300A8F6A0 /* UIColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColorSet.swift; path = homework_Challenge/Common/UIColorSet.swift; sourceTree = SOURCE_ROOT; };
+		E58364D02C6138D200A8F6A0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E58364D22C6138E500A8F6A0 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewModel.swift; path = homework_Challenge/ViewModel/DetailViewModel.swift; sourceTree = SOURCE_ROOT; };
+		E58364D42C61426D00A8F6A0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E5D301962C5B7800004276E8 /* homework_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homework_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D301992C5B7800004276E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5D3019D2C5B7800004276E8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				E5D301EC2C5CF0E7004276E8 /* MainViewModel.swift */,
+				E58364D22C6138E500A8F6A0 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -121,10 +128,12 @@
 		E5D301E52C5CCE1C004276E8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E5D3019D2C5B7800004276E8 /* MainViewController.swift */,
 				E5D301E62C5CCF2A004276E8 /* MainView.swift */,
 				E58364A92C5FC50400A8F6A0 /* MainHeaderView.swift */,
-				E5D3019D2C5B7800004276E8 /* MainViewController.swift */,
 				E5D301F02C5D50CF004276E8 /* ListCell.swift */,
+				E58364D02C6138D200A8F6A0 /* DetailViewController.swift */,
+				E58364D42C61426D00A8F6A0 /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,12 +216,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E58364D12C6138D200A8F6A0 /* DetailViewController.swift in Sources */,
 				E5D301EF2C5CF3D6004276E8 /* PokemonDetail.swift in Sources */,
 				E5D301E22C5CCDDD004276E8 /* NetworkManager.swift in Sources */,
 				E5D301E72C5CCF2A004276E8 /* MainView.swift in Sources */,
 				E5D3019E2C5B7800004276E8 /* MainViewController.swift in Sources */,
 				E58364AA2C5FC50400A8F6A0 /* MainHeaderView.swift in Sources */,
 				E5D3019A2C5B7800004276E8 /* AppDelegate.swift in Sources */,
+				E58364D52C61426D00A8F6A0 /* DetailView.swift in Sources */,
+				E58364D32C6138E500A8F6A0 /* DetailViewModel.swift in Sources */,
 				E5D301F12C5D50CF004276E8 /* ListCell.swift in Sources */,
 				E58364CF2C6092B300A8F6A0 /* UIColorSet.swift in Sources */,
 				E5D301E92C5CE543004276E8 /* PokemonList.swift in Sources */,
