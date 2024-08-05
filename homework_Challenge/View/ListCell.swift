@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SnapKit
+import RxSwift
 
 class ListCell: UICollectionViewCell {
     static let id = "ListCell"
@@ -14,36 +16,42 @@ class ListCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .purple
+        imageView.backgroundColor = .white
         imageView.layer.cornerRadius = 10
         return imageView
     }()
     
+    private var disposeBag = DisposeBag()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(imageView)
-        imageView.frame = contentView.bounds
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func configure(with pokemon: Pokemon) {
-        guard let id = pokemon.id else { return }
-        let urlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id).png"
-        guard let url = URL(string: urlString) else { return }
-        
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.imageView.image = image
-                    }
-                }
-            }
-            
+    override func prepareForReuse() {
+            super.prepareForReuse()
+            imageView.image = nil
+            disposeBag = DisposeBag()
         }
+    
+    func configure(with pokemon: Pokemon, viewModel: MainViewModel) {
+            viewModel.getImage(for: pokemon)
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] image in
+                    self?.imageView.image = image
+                })
+                .disposed(by: disposeBag)
+        }
+    
+    private func setupUI() {
+        contentView.addSubview(imageView)
+        imageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
     }
     
     

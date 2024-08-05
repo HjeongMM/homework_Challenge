@@ -6,27 +6,90 @@
 //
 
 import UIKit
+import SnapKit
+import RxSwift
 
 class MainViewController: UIViewController {
-
-    private var mainView: MainView?
+    
+    private let mainView = MainView()
     private let viewModel = MainViewModel(id: 0)
+    private let disposeBag = DisposeBag()
     private var pokemonList = [Pokemon]()
     
     override func loadView() {
-        mainView = MainView()
+        
         view = mainView
     }
     
-//    private lazy var collectionView: UICollectionView = {
-//        let collectionView = UICollectionView(frame: .zero), collectionViewLayout: createLayout
-//    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+        view.backgroundColor = .mainRed
+        setupCollectionView()
+        bind()
+        viewModel.fetchThumbnail()
 
+    }
+    private func setupCollectionView() {
+        mainView.collectionView.dataSource = self
+        mainView.collectionView.delegate = self
+        mainView.collectionView.register(ListCell.self, forCellWithReuseIdentifier: ListCell.id)
+    }
+    
+    private func bind() {
+        viewModel.thumbnailImageSubject
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.mainView.collectionView.reloadData()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func createLayout() -> UICollectionViewLayout {
+        return UICollectionViewLayout()
+    }
+    
 
 }
 
+// MARK: - UICollectionViewDataSource
+extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            do {
+                return try viewModel.thumbnailImageSubject.value().count
+            } catch {
+                return 0
+            }
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCell.id, for: indexPath) as? ListCell else {
+                fatalError("Failed to dequeue ListCell")
+            }
+            
+            do {
+                let pokemons = try viewModel.thumbnailImageSubject.value()
+                let pokemon = pokemons[indexPath.item]
+                cell.configure(with: pokemon, viewModel: viewModel)
+            } catch {
+                print("Error getting pokemon: \(error)")
+            }
+            
+            return cell
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            // TODO: Navigate to detail view
+        }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension MainViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding: CGFloat = 10 // 화면 가장자리 여백
+        let availableWidth = view.bounds.width - 20 - (padding * 2)
+        let width = availableWidth / 3
+        let height = width
+        
+        return CGSize(width: width, height: height)
+    }
+}
