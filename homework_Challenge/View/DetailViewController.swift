@@ -12,13 +12,12 @@ class DetailViewController: UIViewController {
     private let detailView = DetailView()
     
     override func loadView() {
-        
         view = detailView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("df")
-        view.backgroundColor = .darkRed
+        view.backgroundColor = .mainRed
     }
 }

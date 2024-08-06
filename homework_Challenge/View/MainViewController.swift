@@ -46,8 +46,6 @@ class MainViewController: UIViewController {
     private func createLayout() -> UICollectionViewLayout {
         return UICollectionViewLayout()
     }
-    
-    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -60,12 +58,12 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             return 0
         }
     }
+    
     //cellForItemAt 재사용가능한 셀 가져오기, 데이터 구성, 셀 반환 역할
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCell.id, for: indexPath) as? ListCell else {
             fatalError("Failed to dequeue ListCell")
         }
-        
         do {
             let pokemons = try viewModel.thumbnailImageSubject.value()
             let pokemon = pokemons[indexPath.item]
@@ -76,6 +74,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let selectedItem =
     }
