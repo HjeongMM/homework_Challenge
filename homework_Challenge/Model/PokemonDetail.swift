@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct PokemonDetailResponse: Codable {
     let id: Int
     let name: String
