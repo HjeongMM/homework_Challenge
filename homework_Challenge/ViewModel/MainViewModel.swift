@@ -11,14 +11,9 @@ import UIKit
 
 class MainViewModel {
     private let disposeBag = DisposeBag()
-    private let id: Int
     
-    let thumbnailImageSubject = BehaviorSubject<[Pokemon]>(value: [])
+    let thumbnailImageSubject = BehaviorSubject(value: [Pokemon]())
     private var imageCache = NSCache<NSString, UIImage>()
-    
-    init(id: Int) {
-        self.id = id
-    }
     
     func fetchThumbnail() {
         // limit=20개, offset = 0 까지만
@@ -33,10 +28,7 @@ class MainViewModel {
     }
     
     func getImage(for pokemon: Pokemon) -> Observable<UIImage?> {
-        guard let id = pokemon.id else {
-            return Observable.just(nil)
-        }
-        
+        let id = pokemon.id
         let urlString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\(id).png"
         
         if let cachedImage = imageCache.object(forKey: NSString(string: urlString)) {
