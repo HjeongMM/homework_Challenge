@@ -20,9 +20,8 @@ class DetailView: UIView {
         return stackView
     }()
     
-    private let imageView: UIImageView = {
+    let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .yellow
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
@@ -31,6 +30,8 @@ class DetailView: UIView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
+//        stackView.layer.borderColor = UIColor.white.cgColor
+        stackView.layer.borderWidth = 1
         return stackView
     }()
     
@@ -43,7 +44,6 @@ class DetailView: UIView {
     
     private func detailLargeLabel() -> UILabel {
         let label = UILabel()
-        label.text = "Large label"
         label.textAlignment = .center
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 24)
@@ -52,7 +52,6 @@ class DetailView: UIView {
     
     private func detailSmallLabel() -> UILabel {
         let label = UILabel()
-        label.text = "small label"
         label.textAlignment = .center
         label.textColor = .white
         label.font = .boldSystemFont(ofSize: 18)
@@ -100,7 +99,7 @@ class DetailView: UIView {
         stackView1.snp.makeConstraints {
             $0.top.equalTo(imageView.snp.bottom).offset(20)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(300)
+            $0.width.equalTo(180)
             $0.height.equalTo(30)
         }
         

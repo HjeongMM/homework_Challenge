@@ -14,6 +14,7 @@
 		E58364D52C61426D00A8F6A0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58364D42C61426D00A8F6A0 /* DetailView.swift */; };
 		E5CC5D272C63397200DFF9AC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E5CC5D262C63397200DFF9AC /* RxCocoa */; };
 		E5CC5D292C6442AB00DFF9AC /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC5D282C6442AB00DFF9AC /* testViewController.swift */; };
+		E5CC5D2D2C64917500DFF9AC /* PokemonTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC5D2C2C64917500DFF9AC /* PokemonTranslator.swift */; };
 		E5D3019A2C5B7800004276E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D301992C5B7800004276E8 /* AppDelegate.swift */; };
 		E5D3019E2C5B7800004276E8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3019D2C5B7800004276E8 /* MainViewController.swift */; };
 		E5D301A32C5B7803004276E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D301A22C5B7803004276E8 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		E58364D22C6138E500A8F6A0 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewModel.swift; path = homework_Challenge/ViewModel/DetailViewModel.swift; sourceTree = SOURCE_ROOT; };
 		E58364D42C61426D00A8F6A0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E5CC5D282C6442AB00DFF9AC /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = testViewController.swift; path = homework_Challenge/testViewController.swift; sourceTree = SOURCE_ROOT; };
+		E5CC5D2C2C64917500DFF9AC /* PokemonTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PokemonTranslator.swift; path = homework_Challenge/Common/PokemonTranslator.swift; sourceTree = SOURCE_ROOT; };
 		E5D301962C5B7800004276E8 /* homework_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homework_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D301992C5B7800004276E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5D3019D2C5B7800004276E8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				E5D301E12C5CCDDD004276E8 /* NetworkManager.swift */,
+				E5CC5D2C2C64917500DFF9AC /* PokemonTranslator.swift */,
 				E58364CE2C6092B300A8F6A0 /* UIColorSet.swift */,
 			);
 			path = Common;
@@ -226,6 +229,7 @@
 				E5D301EF2C5CF3D6004276E8 /* PokemonDetail.swift in Sources */,
 				E5CC5D292C6442AB00DFF9AC /* testViewController.swift in Sources */,
 				E5D301E22C5CCDDD004276E8 /* NetworkManager.swift in Sources */,
+				E5CC5D2D2C64917500DFF9AC /* PokemonTranslator.swift in Sources */,
 				E5D301E72C5CCF2A004276E8 /* MainView.swift in Sources */,
 				E5D3019E2C5B7800004276E8 /* MainViewController.swift in Sources */,
 				E58364AA2C5FC50400A8F6A0 /* MainHeaderView.swift in Sources */,

@@ -33,9 +33,9 @@ class NetworkManager {
                 }
                 
                 // 받은 JSON 데이터 출력 테스트
-                if let jsonString = String(data: data, encoding: .utf8) {
-                    print("Received JSON data: \(jsonString)")
-                }
+//                if let jsonString = String(data: data, encoding: .utf8) {
+//                    print("\(jsonString)")
+//                }
                 
                 do {
                     let decodeData = try JSONDecoder().decode(T.self, from: data)
