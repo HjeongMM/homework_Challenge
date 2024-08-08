@@ -12,6 +12,8 @@
 		E58364D12C6138D200A8F6A0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58364D02C6138D200A8F6A0 /* DetailViewController.swift */; };
 		E58364D32C6138E500A8F6A0 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58364D22C6138E500A8F6A0 /* DetailViewModel.swift */; };
 		E58364D52C61426D00A8F6A0 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58364D42C61426D00A8F6A0 /* DetailView.swift */; };
+		E5CC5D272C63397200DFF9AC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = E5CC5D262C63397200DFF9AC /* RxCocoa */; };
+		E5CC5D292C6442AB00DFF9AC /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CC5D282C6442AB00DFF9AC /* testViewController.swift */; };
 		E5D3019A2C5B7800004276E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D301992C5B7800004276E8 /* AppDelegate.swift */; };
 		E5D3019E2C5B7800004276E8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3019D2C5B7800004276E8 /* MainViewController.swift */; };
 		E5D301A32C5B7803004276E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D301A22C5B7803004276E8 /* Assets.xcassets */; };
@@ -32,6 +34,7 @@
 		E58364D02C6138D200A8F6A0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E58364D22C6138E500A8F6A0 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewModel.swift; path = homework_Challenge/ViewModel/DetailViewModel.swift; sourceTree = SOURCE_ROOT; };
 		E58364D42C61426D00A8F6A0 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		E5CC5D282C6442AB00DFF9AC /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = testViewController.swift; path = homework_Challenge/testViewController.swift; sourceTree = SOURCE_ROOT; };
 		E5D301962C5B7800004276E8 /* homework_Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homework_Challenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D301992C5B7800004276E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5D3019D2C5B7800004276E8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5CC5D272C63397200DFF9AC /* RxCocoa in Frameworks */,
 				E5D301DF2C5CCCED004276E8 /* RxSwift in Frameworks */,
 				E5D301D92C5CCCD6004276E8 /* SnapKit in Frameworks */,
 			);
@@ -86,6 +90,7 @@
 				E5D301A22C5B7803004276E8 /* Assets.xcassets */,
 				E5D301992C5B7800004276E8 /* AppDelegate.swift */,
 				E5D301A42C5B7803004276E8 /* LaunchScreen.storyboard */,
+				E5CC5D282C6442AB00DFF9AC /* testViewController.swift */,
 				E5D301A72C5B7803004276E8 /* Info.plist */,
 			);
 			path = homework_Challenge;
@@ -157,6 +162,7 @@
 			packageProductDependencies = (
 				E5D301D82C5CCCD6004276E8 /* SnapKit */,
 				E5D301DE2C5CCCED004276E8 /* RxSwift */,
+				E5CC5D262C63397200DFF9AC /* RxCocoa */,
 			);
 			productName = homework_Challenge;
 			productReference = E5D301962C5B7800004276E8 /* homework_Challenge.app */;
@@ -218,6 +224,7 @@
 			files = (
 				E58364D12C6138D200A8F6A0 /* DetailViewController.swift in Sources */,
 				E5D301EF2C5CF3D6004276E8 /* PokemonDetail.swift in Sources */,
+				E5CC5D292C6442AB00DFF9AC /* testViewController.swift in Sources */,
 				E5D301E22C5CCDDD004276E8 /* NetworkManager.swift in Sources */,
 				E5D301E72C5CCF2A004276E8 /* MainView.swift in Sources */,
 				E5D3019E2C5B7800004276E8 /* MainViewController.swift in Sources */,
@@ -462,6 +469,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E5CC5D262C63397200DFF9AC /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E5D301DC2C5CCCE2004276E8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
 		E5D301D82C5CCCD6004276E8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E5D301D72C5CCCD6004276E8 /* XCRemoteSwiftPackageReference "SnapKit" */;

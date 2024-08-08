@@ -15,10 +15,10 @@ struct PokemonDetailResponse: Codable {
     let weight: Int
     
     struct TypeElement: Codable {
-        let type: pokemonType
+        let type: PokemonType
     }
     
-    struct pokemonType: Codable {
+    struct PokemonType: Codable {
         let name: String
         let url: String
     }

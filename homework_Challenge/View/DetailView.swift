@@ -27,14 +27,14 @@ class DetailView: UIView {
         return imageView
     }()
     
-    private let stackView1: UIStackView = {
+    let stackView1: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         return stackView
     }()
     
-    private let stackView2: UIStackView = {
+    let stackView2: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillEqually

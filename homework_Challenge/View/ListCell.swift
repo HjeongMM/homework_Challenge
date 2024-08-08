@@ -38,6 +38,7 @@ class ListCell: UICollectionViewCell {
         }
     
     func configure(with pokemon: Pokemon, viewModel: MainViewModel) {
+        print("listcell/  Pokemon ID: \(pokemon.id)") 
             viewModel.getImage(for: pokemon)
                 .observe(on: MainScheduler.instance)
                 .subscribe(onNext: { [weak self] image in
