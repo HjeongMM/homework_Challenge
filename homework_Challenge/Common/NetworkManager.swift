@@ -32,16 +32,10 @@ class NetworkManager {
                     return
                 }
                 
-                // 받은 JSON 데이터 출력 테스트
-//                if let jsonString = String(data: data, encoding: .utf8) {
-//                    print("\(jsonString)")
-//                }
-                
                 do {
                     let decodeData = try JSONDecoder().decode(T.self, from: data)
                     observer(.success(decodeData))
                 } catch {
-                    print("Decoding error: \(error)")
                     observer(.failure(NetworkError.decodingFail))
                 }
             }.resume()

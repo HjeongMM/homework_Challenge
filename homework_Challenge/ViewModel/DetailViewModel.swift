@@ -14,8 +14,7 @@ class DetailViewModel {
     private let mainViewModel = MainViewModel()
     let detailInfoSubject = BehaviorRelay<PokemonDetailResponse?>(value: nil)
     private let pokemonSubject: BehaviorRelay<Pokemon>
-    //    let error = PublishSubject<Error>()
-    
+
     var image: Observable<UIImage?> {
         return pokemonSubject.flatMap { [weak self] pokemon -> Observable<UIImage?> in
             guard let self = self else { return Observable.just(nil) }

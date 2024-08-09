@@ -11,7 +11,7 @@ import RxSwift
 
 class ListCell: UICollectionViewCell {
     static let id = "ListCell"
-
+    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -32,20 +32,19 @@ class ListCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     override func prepareForReuse() {
-            super.prepareForReuse()
-            imageView.image = nil
-            disposeBag = DisposeBag()
-        }
+        super.prepareForReuse()
+        imageView.image = nil
+        disposeBag = DisposeBag()
+    }
     
     func configure(with pokemon: Pokemon, viewModel: MainViewModel) {
-        print("listcell/  Pokemon ID: \(pokemon.id)") 
-            viewModel.getImage(for: pokemon)
-                .observe(on: MainScheduler.instance)
-                .subscribe(onNext: { [weak self] image in
-                    self?.imageView.image = image
-                })
-                .disposed(by: disposeBag)
-        }
+        viewModel.getImage(for: pokemon)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] image in
+                self?.imageView.image = image
+            })
+            .disposed(by: disposeBag)
+    }
     
     private func setupUI() {
         contentView.addSubview(imageView)
@@ -53,9 +52,5 @@ class ListCell: UICollectionViewCell {
             $0.edges.equalToSuperview()
         }
         
-    }
-    
-    
-    
-    
+    } 
 }

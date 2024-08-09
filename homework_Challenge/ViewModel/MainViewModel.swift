@@ -5,26 +5,44 @@
 //  Created by 임혜정 on 8/2/24.
 //
 
-import Foundation
-import RxSwift
 import UIKit
+import RxSwift
 
 class MainViewModel {
     private let disposeBag = DisposeBag()
-    
-    let thumbnailImageSubject = BehaviorSubject(value: [Pokemon]())
     private var imageCache = NSCache<NSString, UIImage>()
+    let thumbnailImageSubject = BehaviorSubject(value: [Pokemon]())
+    // limit = 20 페이지네이션 학습
+    private var offset = 0
+    private var isLoading = false
+    
     
     func fetchThumbnail() {
-        // limit=20개, offset = 0 까지만
-        guard let url = URL(string: "https://pokeapi.co/api/v2/pokemon?limit=20?offset=0") else { return }
+        guard !isLoading else { return }
+        isLoading = true
+        
+        let urlString = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=\(offset)"
+        guard let url = URL(string: urlString) else { return }
         
         NetworkManager.shared.fetch(url: url)
-            .subscribe(onSuccess: { [weak self] (response: PokemonListResponse) in //리스폰스 타입을 잘봐라
-                self?.thumbnailImageSubject.onNext(response.results)
+            .subscribe(onSuccess: { [weak self] (response: PokemonListResponse) in
+                guard let self = self else { return }
+                let currentList = try? self.thumbnailImageSubject.value()
+                let newList = (currentList ?? []) + response.results
+                self.thumbnailImageSubject.onNext(newList)
+                self.offset += response.results.count
+                self.isLoading = false
             }, onFailure: { [weak self] error in
                 self?.thumbnailImageSubject.onError(error)
+                self?.isLoading = false
             }).disposed(by: disposeBag)
+    }
+    
+    func loadMore(currentIndex: Int) {
+        let thresholdIndex = self.offset - 5
+        if currentIndex == thresholdIndex {
+            fetchThumbnail()
+        }
     }
     
     func getImage(for pokemon: Pokemon) -> Observable<UIImage?> {
@@ -33,7 +51,7 @@ class MainViewModel {
         
         if let cachedImage = imageCache.object(forKey: NSString(string: urlString)) {
             return Observable.just(cachedImage)
-        } // 이미지 캐싱처리하여 두번째부터는 빠르게 처리
+        }
         
         guard let url = URL(string: urlString) else {
             return Observable.just(nil)
