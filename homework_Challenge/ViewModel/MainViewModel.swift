@@ -12,8 +12,7 @@ class MainViewModel {
     private let disposeBag = DisposeBag()
     private var imageCache = NSCache<NSString, UIImage>()
     let thumbnailImageSubject = BehaviorSubject(value: [Pokemon]())
-    // limit = 20 페이지네이션 학습
-    private var offset = 0
+    private var offset = 0 // limit=20 제한 페이지네이션 학습
     private var isLoading = false
     
     

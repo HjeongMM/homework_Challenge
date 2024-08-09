@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
         viewModel.thumbnailImageSubject
             .bind(to: mainView.collectionView.rx.items(cellIdentifier: ListCell.id, cellType: ListCell.self)) { [weak self] (row, pokemon, cell) in
                 guard let self = self else { return }
-                cell.configure(with: pokemon, viewModel: self.viewModel)
+                self.loadImage(for: pokemon, into: cell)
             }
             .disposed(by: disposeBag)
         
@@ -52,6 +52,14 @@ class MainViewController: UIViewController {
                 self?.viewModel.loadMore(currentIndex: indexPath.item)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func loadImage(for pokemon: Pokemon, into cell: ListCell) {
+        viewModel.getImage(for: pokemon)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { image in
+                cell.configure(with: image)
+            }).disposed(by: disposeBag)
     }
     
     private func showDetailViewController(for pokemon: Pokemon) {
