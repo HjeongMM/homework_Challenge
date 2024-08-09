@@ -79,7 +79,6 @@ class DetailView: UIView {
         }
         
         setupStackView()
-        
     }
     
     private func setupStackView() {
