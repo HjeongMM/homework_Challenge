@@ -49,12 +49,11 @@ class DetailViewController: UIViewController {
                 .bind(to: idLabel.rx.text)
                 .disposed(by: disposeBag)
         }
-        // 이름을 두 번째 UILabel에 바인딩
+        
         if let nameLabel = detailView.stackView1.arrangedSubviews[1] as? UILabel {
             Observable.combineLatest(detailViewModel.name, detailViewModel.koreanName)
                 .map { englishName, koreanName in
-                    "\(koreanName)"
-                }
+                    "\(koreanName)"}
                 .observe(on: MainScheduler.instance)
                 .bind(to: nameLabel.rx.text)
                 .disposed(by: disposeBag)
@@ -81,14 +80,5 @@ class DetailViewController: UIViewController {
                 .bind(to: weightLabel.rx.text)
                 .disposed(by: disposeBag)
         }
-        
-        // 에러 처리
-        //        detailViewModel.error
-        //            .observe(on: MainScheduler.instance)
-        //            .subscribe(onNext: { error in
-        //                print("Error: \(error)")
-        //            })
-        //            .disposed(by: disposeBag)
-        //    }
     }
 }
