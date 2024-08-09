@@ -30,7 +30,6 @@ class MainViewController: UIViewController {
         //        mainView.collectionView.dataSource = self
         mainView.collectionView.delegate = self
         mainView.collectionView.register(ListCell.self, forCellWithReuseIdentifier: ListCell.id)
-
     }
 
     private func bind() {
@@ -46,10 +45,16 @@ class MainViewController: UIViewController {
                 self?.showDetailViewController(for: pokemon)
             })
             .disposed(by: disposeBag)
+        
+        
+        mainView.collectionView.rx.willDisplayCell
+            .subscribe(onNext: { [weak self] (cell, indexPath) in
+                self?.viewModel.loadMore(currentIndex: indexPath.item)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func showDetailViewController(for pokemon: Pokemon) {
-        let detailViewModel = DetailViewModel(pokemon: pokemon)
         let detailViewController = DetailViewController(pokemon: pokemon)
         navigationController?.pushViewController(detailViewController, animated: true)
     }
@@ -58,11 +63,15 @@ class MainViewController: UIViewController {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat = 10 // 화면 가장자리 여백
-        let availableWidth = view.bounds.width - 20 - (padding * 2)
+        let padding: CGFloat = 10 // 셀 횡 간격
+        let sideInset: CGFloat = 10
+        let availableWidth = view.bounds.width - (sideInset * 2) - (padding * 2)
         let width = availableWidth / 3
         let height = width
-        
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
     }
 }

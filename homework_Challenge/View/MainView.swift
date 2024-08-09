@@ -13,8 +13,6 @@ class MainView: UIView {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "pokemonBall")
-        imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.layer.borderWidth = 1
         return imageView
     }()
     
@@ -42,14 +40,15 @@ class MainView: UIView {
         }
         
         imageView.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide.snp.top)
+            $0.top.equalToSuperview().offset(78)
             $0.centerX.equalToSuperview()
             $0.width.height.equalTo(100)
         }
+        
         collectionView.snp.makeConstraints {
             $0.top.equalTo(imageView.snp.bottom).offset(20)
-            $0.leading.trailing.equalToSuperview().inset(10)
-            $0.bottom.equalToSuperview().offset(-20)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-30)
         }
     }
 }

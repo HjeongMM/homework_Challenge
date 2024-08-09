@@ -30,8 +30,6 @@ class DetailView: UIView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-//        stackView.layer.borderColor = UIColor.white.cgColor
-        stackView.layer.borderWidth = 1
         return stackView
     }()
     
